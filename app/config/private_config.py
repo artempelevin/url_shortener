@@ -1,0 +1,1 @@
+SQLALCHEMY_DATABASE_URL = "sqlite:///databse.sqlite"        # TODO use PostgreSQL or MySQL in future

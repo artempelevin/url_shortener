@@ -2,3 +2,6 @@ mypy
 SQLAlchemy
 alembic
 sqlalchemy-stubs
+fastapi
+uvicorn[standard]
+pydantic

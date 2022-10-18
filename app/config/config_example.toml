@@ -1,0 +1,10 @@
+# RENAME 'config_example.toml' --> 'config.toml' !!!
+[deploy]
+debug = true
+
+[server]    # This URL shortener
+host = "127.0.0.1"
+port = 8000
+
+[database]
+url = "sqlite:///databse.sqlite"    # See "Database URLs" in sqlalchemy docs

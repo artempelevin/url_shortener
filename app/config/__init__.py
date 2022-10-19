@@ -17,9 +17,10 @@ class DeployParams(BaseModel):
 class ServerParams(BaseModel):
     host: str
     port: int
+    domain: str
 
     @validator('host')
-    def host_validate(cls, host: str) -> str:
+    def host_checking(cls, host: str) -> str:
         digits = host.split('.')
         assert len(digits) == 4, "Host in must have 4 digits! (example mask: 'xxx.xxx.xxx.xxx')"
         for digit in digits:

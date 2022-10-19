@@ -3,6 +3,7 @@ from datetime import datetime
 from sqlalchemy import Column, Integer, Text, DateTime, String, ForeignKey
 from sqlalchemy.orm import relationship
 
+from app.config import config
 from app.db import Base
 
 
@@ -16,6 +17,14 @@ class Url(Base):
     visits = relationship('Visit', back_populates='url')
     created_at = Column(DateTime(), nullable=False, default=datetime.now())
     updated_at = Column(DateTime(), nullable=False, default=datetime.now(), onupdate=datetime.now())
+
+    @property
+    def shorted_url(self) -> str:
+        return f"{config.server.domain}/{self.key}"
+
+    @property
+    def statistics_url(self) -> str:
+        return f"{config.server.domain}/{self.secret_key}"
 
 
 class Visit(Base):

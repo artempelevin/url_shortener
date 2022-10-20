@@ -5,6 +5,8 @@ debug = true
 [server]    # This URL shortener
 host = "127.0.0.1"
 port = 8000
+domain = '127.0.0.1:8000'  # Or real domain (exampole: 'https://google.com')
+
 
 [database]
 url = "sqlite:///databse.sqlite"    # See "Database URLs" in sqlalchemy docs

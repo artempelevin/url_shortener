@@ -8,5 +8,10 @@ port = 8000
 domain = '127.0.0.1:8000'  # Or real domain (exampole: 'https://google.com')
 
 
+[api_paths]
+urls = "/api/v1/urls"
+statistics = '/api/v1/statistics'
+
+
 [database]
 url = "sqlite:///databse.sqlite"    # See "Database URLs" in sqlalchemy docs

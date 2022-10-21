@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 
 from app.config import config
-from app.routers import urls
+from app.routers import root, urls
 
 
 def create_app() -> FastAPI:
@@ -10,7 +10,8 @@ def create_app() -> FastAPI:
         title='Url Shortener',
         version='0.1.1'
     )
-    _app.include_router(router=urls.router, prefix='/api/v1/urls', tags=['urls'])
+    _app.include_router(router=root.router, tags=['root'])
+    _app.include_router(router=urls.router, prefix=config.api_paths.urls, tags=['urls'])
     return _app
 
 

@@ -5,10 +5,10 @@ from typing import Callable
 from sqlalchemy.orm import Session
 
 from app.models import Url
-from app.schemas.urls import UrlInfo
+from app.schemas.urls import UrlRequestScheme
 
 
-def shorted_url_create(db: Session, url_info: UrlInfo) -> Url:
+def shorted_url_create(db: Session, url_info: UrlRequestScheme) -> Url:
     url = Url(
         target_url=url_info.url,
         key=_generate_uniq_key(db=db, min_size=4, max_size=10, key_is_uniq=_is_uniq_key),

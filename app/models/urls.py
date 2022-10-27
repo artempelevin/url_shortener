@@ -1,7 +1,8 @@
 from datetime import datetime
+from typing import Sequence
 
 from sqlalchemy import Column, Integer, Text, DateTime, String, ForeignKey
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, Mapped
 
 from app.config import config
 from app.db import Base
@@ -14,7 +15,7 @@ class Url(Base):
     target_url = Column(Text(), nullable=False)
     key = Column(String(length=10), unique=True, nullable=False)
     secret_key = Column(String(length=15), unique=True, nullable=False)
-    visits = relationship('Visit', back_populates='url')
+    visits: Mapped[Sequence["Visit"]] = relationship('Visit', back_populates='url', )
     created_at = Column(DateTime(), nullable=False, default=datetime.now())
     updated_at = Column(DateTime(), nullable=False, default=datetime.now(), onupdate=datetime.now())
 

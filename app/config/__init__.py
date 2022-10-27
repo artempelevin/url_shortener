@@ -9,6 +9,7 @@ class Config(BaseModel):
     server: "ServerParams"
     api_paths: "ApiPathsParams"
     database: "DatabaseParams"
+    redis: "RedisParams"
 
 
 class DeployParams(BaseModel):
@@ -51,6 +52,10 @@ class ApiPathsParams(BaseModel):
 
 
 class DatabaseParams(BaseModel):
+    url: str
+
+
+class RedisParams(BaseModel):
     url: str
 
 

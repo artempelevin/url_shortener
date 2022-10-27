@@ -36,4 +36,5 @@ class Visit(Base):
     url = relationship('Url', back_populates='visits')
     ip = Column(String(length=15), nullable=False)
     user_agent = Column(Text())
+    country = Column(Text(), nullable=True)
     visit_time = Column(DateTime(), nullable=False, default=datetime.now())
